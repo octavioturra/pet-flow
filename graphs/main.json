@@ -8,6 +8,128 @@
     "inports": {},
     "outports": {},
     "groups": [],
-    "processes": {},
-    "connections": []
+    "processes": {
+        "dom/CreateFragment_75sw2": {
+            "component": "dom/CreateFragment",
+            "metadata": {
+                "label": "dom/CreateFragment",
+                "x": 324,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/GetElement_v8w8w": {
+            "component": "dom/GetElement",
+            "metadata": {
+                "label": "dom/GetElement",
+                "x": 612,
+                "y": 324,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "pet-flow/main-page_7s75t": {
+            "component": "pet-flow/main-page",
+            "metadata": {
+                "label": "pet-flow/main-page",
+                "x": 612,
+                "y": 216,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "dom/WriteHtml_rizw4": {
+            "component": "dom/WriteHtml",
+            "metadata": {
+                "label": "dom/WriteHtml",
+                "x": 792,
+                "y": 288,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "pet-flow/log_n7cs9": {
+            "component": "pet-flow/log",
+            "metadata": {
+                "label": "pet-flow/log",
+                "x": 376.23165629822523,
+                "y": 33.56679406185694
+            }
+        },
+        "pet-flow/log_7lwfm": {
+            "component": "pet-flow/log",
+            "metadata": {
+                "label": "pet-flow/log",
+                "x": 376.23165629822523,
+                "y": 33.56679406185694
+            }
+        },
+        "pet-flow/log_w1juz": {
+            "component": "pet-flow/log",
+            "metadata": {
+                "label": "pet-flow/log",
+                "x": 376.23165629822523,
+                "y": 33.56679406185694
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "dom/CreateFragment_75sw2",
+                "port": "fragment"
+            },
+            "tgt": {
+                "process": "pet-flow/main-page_7s75t",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "pet-flow/main-page_7s75t",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_rizw4",
+                "port": "html"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "dom/GetElement_v8w8w",
+                "port": "element"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_rizw4",
+                "port": "container"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "body",
+            "tgt": {
+                "process": "dom/GetElement_v8w8w",
+                "port": "selector"
+            }
+        },
+        {
+            "data": "Teste",
+            "tgt": {
+                "process": "pet-flow/main-page_7s75t",
+                "port": "header"
+            }
+        },
+        {
+            "data": "123456",
+            "tgt": {
+                "process": "pet-flow/main-page_7s75t",
+                "port": "main"
+            }
+        }
+    ]
 }
