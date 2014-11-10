@@ -6,27 +6,32 @@ exports.getComponent = ->
   
   header = ''
   main = ''
-  
-  template = """
+    
+  c.inPorts.add 'header', (event, payload)->
+    return unless event is 'data'
+    console.log payload, 'header'
+    header = payload
+    
+  c.inPorts.add 'main', (event, payload)->
+    return unless event is 'data'
+    console.log payload, 'main'
+    main = payload
+    
+  c.inPorts.add 'container', datatype: 'object', (event, payload) ->
+    return unless event is 'data'
+    
+    payload.innerHTML = """
 		<header class="navbar navbar-default navbar-fixed-top">
 			#{header}
 		</header>
 		<main class="container-fluid">
 			#{main}
 		</main>
-	"""
-  
-  c.inPorts.add 'header', (event, payload)->
-    header = payload
-  c.inPorts.add 'main', (event, payload)->
-    main = payload
+	"""  
     
-  c.inPorts.add 'container', (event, payload) ->
-    return unless event is 'data'
+    console.log payload, 'template'
     
-    payload.innerHTML = template  
-    
-    c.outPorts.element.send payload
+    c.outPorts.element.send payload  
     
   c.outPorts.add 'element'
   c

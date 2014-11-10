@@ -9,22 +9,12 @@
     "outports": {},
     "groups": [],
     "processes": {
-        "dom/CreateFragment_75sw2": {
-            "component": "dom/CreateFragment",
-            "metadata": {
-                "label": "dom/CreateFragment",
-                "x": 324,
-                "y": 180,
-                "width": 72,
-                "height": 72
-            }
-        },
         "dom/GetElement_v8w8w": {
             "component": "dom/GetElement",
             "metadata": {
                 "label": "dom/GetElement",
-                "x": 612,
-                "y": 324,
+                "x": 324,
+                "y": 180,
                 "width": 72,
                 "height": 72
             }
@@ -33,8 +23,8 @@
             "component": "pet-flow/main-page",
             "metadata": {
                 "label": "pet-flow/main-page",
-                "x": 612,
-                "y": 216,
+                "x": 504,
+                "y": 144,
                 "width": 72,
                 "height": 72
             }
@@ -43,57 +33,42 @@
             "component": "dom/WriteHtml",
             "metadata": {
                 "label": "dom/WriteHtml",
-                "x": 792,
-                "y": 288,
+                "x": 900,
+                "y": 216,
                 "width": 72,
                 "height": 72
-            }
-        },
-        "pet-flow/log_n7cs9": {
-            "component": "pet-flow/log",
-            "metadata": {
-                "label": "pet-flow/log",
-                "x": 376.23165629822523,
-                "y": 33.56679406185694
-            }
-        },
-        "pet-flow/log_7lwfm": {
-            "component": "pet-flow/log",
-            "metadata": {
-                "label": "pet-flow/log",
-                "x": 376.23165629822523,
-                "y": 33.56679406185694
             }
         },
         "pet-flow/log_w1juz": {
             "component": "pet-flow/log",
             "metadata": {
                 "label": "pet-flow/log",
-                "x": 376.23165629822523,
-                "y": 33.56679406185694
+                "x": 684,
+                "y": 144,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "objects/ExtractProperty_92ccy": {
+            "component": "objects/ExtractProperty",
+            "metadata": {
+                "label": "objects/ExtractProperty",
+                "x": 576,
+                "y": 288,
+                "width": 72,
+                "height": 72
             }
         }
     },
     "connections": [
         {
             "src": {
-                "process": "dom/CreateFragment_75sw2",
-                "port": "fragment"
-            },
-            "tgt": {
-                "process": "pet-flow/main-page_7s75t",
-                "port": "container"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
                 "process": "pet-flow/main-page_7s75t",
                 "port": "element"
             },
             "tgt": {
-                "process": "dom/WriteHtml_rizw4",
-                "port": "html"
+                "process": "pet-flow/log_w1juz",
+                "port": "in"
             },
             "metadata": {
                 "route": null
@@ -101,14 +76,27 @@
         },
         {
             "src": {
+                "process": "pet-flow/log_w1juz",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "dom/WriteHtml_rizw4",
+                "port": "html"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
                 "process": "dom/GetElement_v8w8w",
                 "port": "element"
             },
             "tgt": {
-                "process": "dom/WriteHtml_rizw4",
+                "process": "pet-flow/main-page_7s75t",
                 "port": "container"
             },
-            "metadata": {}
+            "metadata": {
+                "route": null
+            }
         },
         {
             "data": "body",
@@ -129,6 +117,13 @@
             "tgt": {
                 "process": "pet-flow/main-page_7s75t",
                 "port": "main"
+            }
+        },
+        {
+            "data": "Main-page",
+            "tgt": {
+                "process": "pet-flow/log_w1juz",
+                "port": "label"
             }
         }
     ]
