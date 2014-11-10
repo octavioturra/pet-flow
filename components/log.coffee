@@ -13,6 +13,7 @@ exports.getComponent = ->
   c.inPorts.add 'in', (event, payload) ->
     return unless event is 'data'
     console.log payload
-    c.outPorts.out.send payload
+    setTimeout ()->
+    	c.outPorts.out.send payload
   c.outPorts.add 'out'
   c

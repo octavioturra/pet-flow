@@ -19,19 +19,17 @@ exports.getComponent = ->
     
   c.inPorts.add 'container', datatype: 'object', (event, payload) ->
     return unless event is 'data'
-    
-    payload.innerHTML = """
+    setTimeout ()->
+      payload.innerHTML = """
 		<header class="navbar navbar-default navbar-fixed-top">
 			#{header}
 		</header>
 		<main class="container-fluid">
 			#{main}
 		</main>
-	"""  
+	  """  
     
-    console.log payload, 'template'
-    
-    c.outPorts.element.send payload  
+      c.outPorts.element.send payload  
     
   c.outPorts.add 'element'
   c

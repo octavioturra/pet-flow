@@ -48,16 +48,6 @@
                 "width": 72,
                 "height": 72
             }
-        },
-        "objects/ExtractProperty_92ccy": {
-            "component": "objects/ExtractProperty",
-            "metadata": {
-                "label": "objects/ExtractProperty",
-                "x": 576,
-                "y": 288,
-                "width": 72,
-                "height": 72
-            }
         }
     },
     "connections": [
